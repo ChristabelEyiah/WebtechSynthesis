@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyMate helps students organize assignments and track study progress.">
+    <title>StudyMate | Student Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="#home" class="logo">StudyMate<span>.</span></a>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#tasks">My Tasks</a>
+            <a href="#add-task">Add Task</a>
+        </nav>
+    </header>
+
+    <main class="container" id="home">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL STUDY PLANNER</p>
+                <h1>Plan smarter, study better.</h1>
+                <p>Organize your assignments and make every study session count.</p>
+            </div>
+            <div class="welcome-icon" aria-hidden="true">📚</div>
+        </section>
+
+        <section class="dashboard" aria-label="Task summary">
+            <article class="stat-card">
+                <span class="stat-icon">📝</span>
+                <p>Total Tasks</p>
+                <h2 id="total-tasks">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">⏳</span>
+                <p>Pending Tasks</p>
+                <h2 id="pending-tasks">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">✅</span>
+                <p>Completed Tasks</p>
+                <h2 id="completed-tasks">0</h2>
+            </article>
+        </section>
+
+        <section class="progress-section" aria-labelledby="progress-title">
+            <div class="progress-heading">
+                <div>
+                    <h2 id="progress-title">Your Progress</h2>
+                    <p>Every completed task is a step forward.</p>
+                </div>
+                <strong id="progress-text">0%</strong>
+            </div>
+
+            <div class="progress-track" id="progress-track" role="progressbar" aria-label="Tasks completed"
+                aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="panel task-panel" id="tasks">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">STAY ON TRACK</p>
+                        <h2>My Tasks</h2>
+                    </div>
+                    <span class="task-count" id="task-count">0 tasks</span>
+                </div>
+
+                <div class="filter-row">
+                    <label for="task-filter">Show:</label>
+                    <select id="task-filter">
+                        <option value="all">All tasks</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+
+                <div id="task-list" class="task-list" aria-live="polite">
+                    <p class="empty-state">No tasks yet. Add your first task!</p>
+                </div>
+            </div>
+
+            <aside class="panel form-panel" id="add-task">
+                <p class="eyebrow">GET STARTED</p>
+                <h2>Add a Task</h2>
+                <p class="form-description">Break your workload into manageable steps.</p>
+
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Task title *</label>
+                        <input type="text" id="task-title" placeholder="e.g. Review lecture notes" maxlength="100"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-subject">Subject *</label>
+                        <input type="text" id="task-subject" placeholder="e.g. Web Development" maxlength="60" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-date">Due date *</label>
+                        <input type="date" id="task-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        + Add Task
+                    </button>
+
+                    <p id="form-message" class="form-message" aria-live="polite"></p>
+                </form>
+            </aside>
+        </section>
+
+        <section class="study-tip">
+            <span aria-hidden="true">💡</span>
+            <div>
+                <h2>Study Tip of the Day</h2>
+                <p>Try studying for 25 minutes, then take a 5-minute break.
+                    Small, focused sessions can make big tasks feel easier.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Made with 💜 for students everywhere.</p>
+        <p>&copy; <span id="current-year"></span> StudyMate</p>
+    </footer>
+</body>
+
+</html>
